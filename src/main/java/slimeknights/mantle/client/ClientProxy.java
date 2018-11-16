@@ -8,6 +8,7 @@ import java.awt.print.Book;
 
 import slimeknights.mantle.client.book.BookLoader;
 import slimeknights.mantle.common.CommonProxy;
+import slimeknights.mantle.config.MantleConfig;
 
 public class ClientProxy extends CommonProxy {
 
@@ -26,6 +27,8 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void postInit() {
         ((IReloadableResourceManager) Minecraft.getMinecraft().getResourceManager()).registerReloadListener(bookLoader);
-        MinecraftForge.EVENT_BUS.register(new ExtraHeartRenderHandler());
+
+        if(MantleConfig.heartsEnabled)
+            MinecraftForge.EVENT_BUS.register(new ExtraHeartRenderHandler());
     }
 }

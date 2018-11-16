@@ -11,6 +11,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import slimeknights.mantle.common.CommonProxy;
+import slimeknights.mantle.pulsar.control.PulseManager;
+import slimeknights.mantle.config.MantleConfig;
 
 /**
  * Mantle
@@ -39,8 +41,12 @@ public class Mantle {
   @SidedProxy(clientSide = "slimeknights.mantle.client.ClientProxy", serverSide = "slimeknights.mantle.common.CommonProxy")
   public static CommonProxy proxy;
 
+  public static PulseManager pulseManager = new PulseManager(MantleConfig.pulseConfig);
+
   @Mod.EventHandler
   public void preInit(FMLPreInitializationEvent event){
+    MantleConfig.load(event);
+
     proxy.preInit();
   }
 
