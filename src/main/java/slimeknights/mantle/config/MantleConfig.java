@@ -52,10 +52,6 @@ public final class MantleConfig {
         Property prop;
 
         {
-            Modules = pulseConfig.getCategory();
-        }
-
-        {
             String cat = "clientside";
             List<String> propOrder = Lists.newArrayList();
             Modules = configFile.getCategory(cat);
@@ -69,10 +65,6 @@ public final class MantleConfig {
         boolean changed = false;
         if(configFile.hasChanged()) {
             configFile.save();
-            changed = true;
-        }
-        if(pulseConfig.getConfig().hasChanged()) {
-            pulseConfig.flush();
             changed = true;
         }
         return changed;
