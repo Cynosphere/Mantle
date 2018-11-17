@@ -41,7 +41,7 @@ public class Mantle {
   @SidedProxy(clientSide = "slimeknights.mantle.client.ClientProxy", serverSide = "slimeknights.mantle.common.CommonProxy")
   public static CommonProxy proxy;
 
-  public static PulseManager pulseManager = new PulseManager(MantleConfig.pulseConfig);
+  //public static PulseManager pulseManager = new PulseManager(MantleConfig.pulseConfig);
 
   @Mod.EventHandler
   public void preInit(FMLPreInitializationEvent event){

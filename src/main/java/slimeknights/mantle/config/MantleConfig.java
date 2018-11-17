@@ -22,7 +22,7 @@ import slimeknights.mantle.pulsar.config.ForgeCFG;
 import slimeknights.mantle.Mantle;
 
 public final class MantleConfig {
-    public static ForgeCFG pulseConfig = new ForgeCFG("MantleModules","Modules");
+    //public static ForgeCFG pulseConfig = new ForgeCFG("Mantle","Modules");
     public static MantleConfig instance = new MantleConfig();
 
     private MantleConfig() {
@@ -33,9 +33,6 @@ public final class MantleConfig {
     static Configuration configFile;
 
     static ConfigCategory Modules;
-    static ConfigCategory Gameplay;
-    static ConfigCategory Worldgen;
-    static ConfigCategory ClientSide;
 
     public static void load(FMLPreInitializationEvent event) {
         configFile = new Configuration(event.getSuggestedConfigurationFile(), "0.1", false);
@@ -61,7 +58,7 @@ public final class MantleConfig {
         {
             String cat = "clientside";
             List<String> propOrder = Lists.newArrayList();
-            Gameplay = configFile.getCategory(cat);
+            Modules = configFile.getCategory(cat);
 
             prop = configFile.get(cat, "heartsEnabled", heartsEnabled);
             prop.setComment("Enable or disable Mantle's heart rendering.");
